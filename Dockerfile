@@ -10,6 +10,7 @@ RUN apk --no-cache --update \
     && mkdir /htdocs
 RUN wget https://github.com/axllent/mailpit/releases/download/v1.20.5/mailpit-linux-amd64.tar.gz
 RUN tar -xvzf mailpit-linux-amd64.tar.gz -C /usr/local/bin
+RUN mkdir /var/lib/mailpit
 
 EXPOSE 80 443
 
