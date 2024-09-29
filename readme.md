@@ -1,12 +1,11 @@
 Build the image
-`sudo docker build -t xaryna/alpine-apache-php .`
+`sudo docker build -t xaryna/alpine-apache-php-mailpit .`
 
 Docker Compose
 ```
-    version: '3'
     services:
       web:
-        image: xaryna/alpine-apache-php
+        image: xaryna/alpine-apache-php-mailpit
         restart: always
         ports:
           - "1880:80"
