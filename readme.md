@@ -3,8 +3,8 @@ Build the image
 
 Docker Compose
 ```
-    services:
-      web:
+services:
+    web:
         image: xaryna/alpine-apache-php-mailpit
         restart: always
         ports:
@@ -15,4 +15,6 @@ Docker Compose
         environment:
           SERVER_ADMIN: webmaster@localhost
           HTTP_SERVER_NAME: localhost
+          MAILPIT: enabled
+
 ```
