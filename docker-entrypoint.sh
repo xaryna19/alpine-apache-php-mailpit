@@ -59,4 +59,4 @@ sed -i 's/^ServerTokens Full/ServerTokens ${HOST_ENV}/' /etc/apache2/httpd.conf
 sed -i 's/^ServerSignature Off/ServerSignature On/' /etc/apache2/httpd.conf
 
 echo 'Running Apache'
-/usr/local/bin/mailpit -d /var/lib/mailpit/mailpit.db -m 1000 --smtp-auth-allow-insecure --quiet && httpd -D FOREGROUND
+httpd -D FOREGROUND
