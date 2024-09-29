@@ -59,7 +59,8 @@ sed -i "s#^;date.timezone =\$#date.timezone = \"${TZ}\"#" /etc/php83/php.ini
 sed -i 's/^ServerTokens Full/ServerTokens ${HOST_ENV}/' /etc/apache2/httpd.conf
 sed -i 's/^ServerSignature Off/ServerSignature On/' /etc/apache2/httpd.conf
 
-if [${MAILPIT} = "enabled" ] then
+echo 'mailpit is ' ${MAILPIT}
+if [$MAILPIT = "enabled" ] then
   service mailpit start
 fi
 
