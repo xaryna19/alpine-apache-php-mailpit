@@ -8,8 +8,8 @@ Docker Compose
         image: xaryna/alpine-apache-php-mailpit
         restart: always
         ports:
-          - "1880:80"
-          #- "1443:443"
+          - "1980:80"
+          #- "1943:443"
         volumes:
           - /home/debian/docker/data/app/first-app/app:/htdocs
 ```
