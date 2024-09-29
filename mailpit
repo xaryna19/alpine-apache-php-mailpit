@@ -2,5 +2,4 @@
 name="Mailpit Service"
 description="Mailpit Service"
 command="/usr/local/bin/mailpit.sh"
-command_background=true
 pidfile="/run/mailpit.pid"
