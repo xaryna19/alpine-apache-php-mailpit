@@ -1,6 +1,6 @@
 #!/sbin/openrc-run
 name="Monitor Directory"
 description="Monitor a directory"
-command="/usr/local/bin/monitor_directory.sh"
+command="/usr/local/bin/mailpit -d /var/lib/mailpit/mailpit.db -m 1000 --smtp-auth-allow-insecure --log-file /var/lib/mailpit/mailpit.log"
 command_background=true
 pidfile="/run/monitor_directory.pid"
