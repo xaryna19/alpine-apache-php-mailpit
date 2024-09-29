@@ -60,7 +60,7 @@ sed -i 's/^ServerTokens Full/ServerTokens ${HOST_ENV}/' /etc/apache2/httpd.conf
 sed -i 's/^ServerSignature Off/ServerSignature On/' /etc/apache2/httpd.conf
 
 echo 'mailpit is ' ${MAILPIT}
-if [$MAILPIT = "enabled" ]
+if [${MAILPIT} = "enabled" ]
 then
   service mailpit start
 else
