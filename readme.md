@@ -12,4 +12,7 @@ Docker Compose
           #- "1943:443"
         volumes:
           - /home/debian/docker/data/app/first-app/app:/htdocs
+        environment:
+          SERVER_ADMIN: webmaster@localhost
+          HTTP_SERVER_NAME: localhost
 ```
