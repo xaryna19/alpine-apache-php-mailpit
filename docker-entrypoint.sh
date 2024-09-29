@@ -58,9 +58,5 @@ sed -i "s#^;date.timezone =\$#date.timezone = \"${TZ}\"#" /etc/php83/php.ini
 sed -i 's/^ServerTokens Full/ServerTokens ${HOST_ENV}/' /etc/apache2/httpd.conf
 sed -i 's/^ServerSignature Off/ServerSignature On/' /etc/apache2/httpd.conf
 
-echo 'Running Mailpit'
-/usr/local/bin/mailpit -d /var/lib/mailpit/mailpit.db -m 1000 --smtp-auth-allow-insecure --log-file /var/lib/mailpit/mailpit.log
-
 echo 'Running Apache'
-
-httpd -D FOREGROUND
+/usr/local/bin/mailpit -d /var/lib/mailpit/mailpit.db -m 1000 --smtp-auth-allow-insecure --log-file /var/lib/mailpit/mailpit.log && httpd -D FOREGROUND
