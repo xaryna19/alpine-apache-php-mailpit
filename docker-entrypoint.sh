@@ -39,21 +39,13 @@ sed -i "s#^LogLevel .*#LogLevel ${LOG_LEVEL}#g" /etc/apache2/httpd.conf
 sed -i 's/#LoadModule\ rewrite_module/LoadModule\ rewrite_module/'   /etc/apache2/httpd.conf
 sed -i 's/#LoadModule\ deflate_module/LoadModule\ deflate_module/'   /etc/apache2/httpd.conf
 sed -i 's/#LoadModule\ expires_module/LoadModule\ expires_module/'   /etc/apache2/httpd.conf
-sed -i 's/#LoadModule\ brotli_module/LoadModule\ brotli_module/'     /etc/apache2/httpd.conf
 sed -i 's/#LoadModule\ request_module/LoadModule\ request_module/'   /etc/apache2/httpd.conf
 sed -i 's/#LoadModule\ remoteip_module/LoadModule\ remoteip_module/' /etc/apache2/httpd.conf
 sed -i 's/#LoadModule\ session_module/LoadModule\ session_module/'   /etc/apache2/httpd.conf
-sed -i 's/#LoadModule\ proxy_module/LoadModule\ proxy_module/'                     /etc/apache2/httpd.conf
-sed -i 's/#LoadModule\ proxy_http_module/LoadModule\ proxy_http_module/'           /etc/apache2/httpd.conf
-sed -i 's/#LoadModule\ proxy_balancer_module/LoadModule\ proxy_balancer_module/'   /etc/apache2/httpd.conf
-sed -i 's/#LoadModule\ proxy_wstunnel_module/LoadModule\ proxy_wstunnel_module/'   /etc/apache2/httpd.conf
 
-echo "#LoadModule proxy_module modules/proxy_module.so" | tee -a /etc/apache2/httpd.conf >/dev/null
-echo "#LoadModule proxy_http_module modules/proxy_http_module.so" | tee -a /etc/apache2/httpd.conf >/dev/null
-echo "#LoadModule proxy_balancer_module modules/proxy_balancer_module.so" | tee -a /etc/apache2/httpd.conf >/dev/null
-echo "#LoadModule proxy_wstunnel_module modules/proxy_wstunnel_module.so" | tee -a /etc/apache2/httpd.conf >/dev/null
-echo ProxyPass "/mailpit" "http://127.0.0.1:8025/" | tee -a /etc/apache2/httpd.conf >/dev/null
-echo ProxyPassReverse "/mailpit" "http://127.0.0.1:8025/" | tee -a /etc/apache2/httpd.conf >/dev/null
+
+echo 'ProxyPass "/mailpit" "http://127.0.0.1:8025/"' | tee -a /etc/apache2/httpd.conf >/dev/null
+echo 'ProxyPassReverse "/mailpit" "http://127.0.0.1:8025/"' | tee -a /etc/apache2/httpd.conf >/dev/null
 
 # Modify php memory limit and timezone
 sed -i "s/memory_limit = .*/memory_limit = ${PHP_MEMORY_LIMIT}/" /etc/php83/php.ini
