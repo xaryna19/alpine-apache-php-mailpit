@@ -57,7 +57,7 @@ sed -i 's/^ServerSignature Off/ServerSignature On/' /etc/apache2/httpd.conf
 echo 'mailpit is' ${MAILPIT}
 # if [${MAILPIT} == "enabled" ]
 # then
-  service mailpit start
+#  service mailpit start
 # else
 #   echo 'mailpit is not enabled'
 # fi
