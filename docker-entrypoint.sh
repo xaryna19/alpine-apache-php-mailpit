@@ -43,8 +43,8 @@ sed -i 's/#LoadModule\ request_module/LoadModule\ request_module/'   /etc/apache
 sed -i 's/#LoadModule\ remoteip_module/LoadModule\ remoteip_module/' /etc/apache2/httpd.conf
 sed -i 's/#LoadModule\ session_module/LoadModule\ session_module/'   /etc/apache2/httpd.conf
 
-# echo 'ProxyPass "/mailpit" "http://127.0.0.1:8025/"' | tee -a /etc/apache2/httpd.conf >/dev/null
-# echo 'ProxyPassReverse "/mailpit" "http://127.0.0.1:8025/"' | tee -a /etc/apache2/httpd.conf >/dev/null
+echo 'ProxyPass "/mailpit" "http://127.0.0.1:8025/"' | tee -a /etc/apache2/httpd.conf >/dev/null
+echo 'ProxyPassReverse "/mailpit" "http://127.0.0.1:8025/"' | tee -a /etc/apache2/httpd.conf >/dev/null
 
 # Modify php memory limit and timezone
 sed -i "s/memory_limit = .*/memory_limit = ${PHP_MEMORY_LIMIT}/" /etc/php83/php.ini
@@ -57,7 +57,7 @@ sed -i 's/^ServerSignature Off/ServerSignature On/' /etc/apache2/httpd.conf
 echo 'mailpit is' ${MAILPIT}
 # if [${MAILPIT} == "enabled" ]
 # then
-#  service mailpit start
+  service mailpit start
 # else
 #   echo 'mailpit is not enabled'
 # fi
