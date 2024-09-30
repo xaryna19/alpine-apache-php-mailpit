@@ -48,10 +48,10 @@ sed -i 's/#LoadModule\ proxy_http_module/LoadModule\ proxy_http_module/'        
 sed -i 's/#LoadModule\ proxy_balancer_module/LoadModule\ proxy_balancer_module/'   /etc/apache2/httpd.conf
 sed -i 's/#LoadModule\ proxy_wstunnel_module/LoadModule\ proxy_wstunnel_module/'   /etc/apache2/httpd.conf
 
-echo "LoadModule proxy_module modules/proxy_module.so" | tee -a /etc/apache2/httpd.conf >/dev/null
-echo "LoadModule proxy_http_module modules/proxy_http_module.so" | tee -a /etc/apache2/httpd.conf >/dev/null
-echo "LoadModule proxy_balancer_module modules/proxy_balancer_module.so" | tee -a /etc/apache2/httpd.conf >/dev/null
-echo "LoadModule proxy_wstunnel_module modules/proxy_wstunnel_module.so" | tee -a /etc/apache2/httpd.conf >/dev/null
+echo "#LoadModule proxy_module modules/proxy_module.so" | tee -a /etc/apache2/httpd.conf >/dev/null
+echo "#LoadModule proxy_http_module modules/proxy_http_module.so" | tee -a /etc/apache2/httpd.conf >/dev/null
+echo "#LoadModule proxy_balancer_module modules/proxy_balancer_module.so" | tee -a /etc/apache2/httpd.conf >/dev/null
+echo "#LoadModule proxy_wstunnel_module modules/proxy_wstunnel_module.so" | tee -a /etc/apache2/httpd.conf >/dev/null
 echo ProxyPass "/mailpit" "http://127.0.0.1:8025/" | tee -a /etc/apache2/httpd.conf >/dev/null
 echo ProxyPassReverse "/mailpit" "http://127.0.0.1:8025/" | tee -a /etc/apache2/httpd.conf >/dev/null
 
